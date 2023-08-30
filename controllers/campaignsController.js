@@ -8,7 +8,7 @@ const getCampaigns = async (req, res) => {
   // get all campaigns from the db
   const campaigns = await Campaign.find().sort({ createdAt: -1 }).lean();
 
-  // check if campaign does not exist
+  // check if campaign exist
   if (!campaigns?.length) {
     return res.status(400).json({ message: "No campaigns found!" });
   }
